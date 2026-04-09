@@ -152,7 +152,7 @@ export default function Dungeon() {
         const newActive = party.find(p => p.id === battleTeam[firstAliveIdx]) || box.find(p => p.id === battleTeam[firstAliveIdx]);
         if (newActive) setPlayerHp(newActive.hp);
       }
-      setEnemyPreview(previewEnemy(dungeonFloor, activePokemon?.level || 5));
+      setEnemyPreview(previewEnemy(dungeonFloor));
     }
   };
 
