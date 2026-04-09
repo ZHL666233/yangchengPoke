@@ -4,7 +4,6 @@ import { ChevronLeft, Shield, Search, Filter, SortAsc, SortDesc, Tent, Info, Tra
 import { useGameStore } from '@/store/useGameStore';
 import PokemonImage from '@/components/PokemonImage';
 import { getPokemonTypes } from '@/pokemonTypes';
-import BottomNav from '@/components/BottomNav';
 import { AnimatePresence } from 'framer-motion';
 import { STAT_NAMES, getNatureText, ABILITY_INFO, getBaseStats, canEvolve, SPECIES_INFO, BaseStats, isPerfectIv } from '@/types';
 import TypeBadges from '@/components/TypeBadges';
@@ -236,7 +235,7 @@ export default function BoxPage() {
       </div>
 
       {/* Action Buttons Fixed at Bottom above BottomNav */}
-      <div className="fixed left-1/2 -translate-x-1/2 w-full max-w-md bottom-24 bg-white border-t border-slate-200 p-4 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.05)] z-50">
+      <div className="absolute left-0 w-full bottom-[68px] bg-white border-t border-slate-200 p-4 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.05)] z-50">
         <div className="grid grid-cols-4 gap-2 max-w-md mx-auto">
           <button
             disabled={!selectedId || isWorking || isTraining || (!isInParty && party.length >= useGameStore.getState().unlockedRooms)}
@@ -274,8 +273,6 @@ export default function BoxPage() {
           </button>
         </div>
       </div>
-
-      <BottomNav />
 
       {/* Release Confirm Modal */}
       <AnimatePresence>

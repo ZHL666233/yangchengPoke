@@ -14,7 +14,7 @@ export default function BottomNav() {
   ];
 
   return (
-    <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white border-t border-slate-200 px-4 py-3 flex justify-between items-center pb-safe z-50">
+    <div className="absolute bottom-0 left-0 w-full bg-white border-t border-slate-200 px-4 py-3 flex justify-between items-center pb-safe z-50">
       {tabs.map(tab => {
         const isActive = location.pathname === tab.id;
         return (

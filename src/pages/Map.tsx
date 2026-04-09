@@ -5,7 +5,6 @@ import { Castle, Trees, CircleDollarSign } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useGameStore } from '@/store/useGameStore';
 import PageHeader from '@/components/PageHeader';
-import BottomNav from '@/components/BottomNav';
 
 const Card = ({
   title,
@@ -97,8 +96,6 @@ export default function MapPage() {
           />
         </div>
       </div>
-
-      <BottomNav />
     </div>
   );
 }

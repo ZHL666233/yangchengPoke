@@ -5,7 +5,6 @@ import { Store, FerrisWheel, BookHeart, Wrench, CircleDollarSign, Settings } fro
 import type { LucideIcon } from 'lucide-react';
 import { useGameStore } from '@/store/useGameStore';
 import PageHeader from '@/components/PageHeader';
-import BottomNav from '@/components/BottomNav';
 
 const Card = ({
   title,
@@ -129,8 +128,6 @@ export default function Menu() {
           打开测试面板
         </motion.button>
       </div>
-
-      <BottomNav />
 
       {/* Test/Debug UI Overlay */}
       <AnimatePresence>

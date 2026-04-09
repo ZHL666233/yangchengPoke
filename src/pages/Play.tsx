@@ -5,7 +5,6 @@ import { EXP_TO_NEXT_LEVEL, ITEMS, ItemId, MAX_HAPPINESS, MAX_HUNGER, SPECIES_IN
 import { Apple, Backpack, CircleDollarSign, Dumbbell, Sparkles, Briefcase, BookOpen, HeartPulse, Activity, ChevronLeft, ChevronRight, Plus, Lock, ArrowRightLeft } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import PokemonImage from '@/components/PokemonImage';
-import BottomNav from '@/components/BottomNav';
 import TypeBadges from '@/components/TypeBadges';
 import BaseStatsChart from '@/components/BaseStatsChart';
 import ItemImage from '@/components/ItemImage';
@@ -373,7 +372,6 @@ export default function Play() {
             {toast}
           </div>
         )}
-        <BottomNav />
 
         {/* Box Modal for Swapping */}
         <AnimatePresence>

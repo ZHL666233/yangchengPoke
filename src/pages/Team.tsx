@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CircleDollarSign, HeartPulse, Minus, Plus, ChevronUp, Sparkles } from 'lucide-react';
 import { useGameStore } from '@/store/useGameStore';
 import PageHeader from '@/components/PageHeader';
-import BottomNav from '@/components/BottomNav';
 import PokemonImage from '@/components/PokemonImage';
 import { EXP_TO_NEXT_LEVEL, canEvolve, SPECIES_INFO, ABILITY_INFO, getNatureText, getBaseStats, STAT_NAMES, BaseStats, isPerfectIv } from '@/types';
 import TypeBadges from '@/components/TypeBadges';
@@ -197,8 +196,6 @@ export default function TeamPage() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <BottomNav />
 
       {/* Stats Detail Modal - matches Play.tsx breeding house detail panel */}
       <AnimatePresence>
