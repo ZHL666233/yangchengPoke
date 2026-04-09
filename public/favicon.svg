@@ -1,4 +1,41 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="32" height="32" fill="#0A0B0D"/>
-<path d="M26.6677 23.7149H8.38057V20.6496H5.33301V8.38159H26.6677V23.7149ZM8.38057 20.6496H23.6201V11.4482H8.38057V20.6496ZM16.0011 16.0021L13.8461 18.1705L11.6913 16.0021L13.8461 13.8337L16.0011 16.0021ZM22.0963 16.0008L19.9414 18.1691L17.7865 16.0008L19.9414 13.8324L22.0963 16.0008Z" fill="#32F08C"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="topHalf" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF3B3B"/>
+      <stop offset="100%" stop-color="#E02020"/>
+    </linearGradient>
+    <linearGradient id="bottomHalf" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E8E8E8"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000040"/>
+    </filter>
+  </defs>
+
+  <!-- 外圈 -->
+  <circle cx="32" cy="32" r="29" fill="url(#topHalf)" stroke="#1a1a2e" stroke-width="3" filter="url(#shadow)"/>
+
+  <!-- 下半白色 -->
+  <path d="M3 32 A29 29 0 0 0 61 32 Z" fill="url(#bottomHalf)" stroke="#1a1a2e" stroke-width="0"/>
+
+  <!-- 外圈描边（覆盖上下半部分） -->
+  <circle cx="32" cy="32" r="29" fill="none" stroke="#1a1a2e" stroke-width="3"/>
+
+  <!-- 中间黑带 -->
+  <rect x="3" y="29" width="58" height="6" fill="#1a1a2e" rx="1"/>
+
+  <!-- 中心白色底圆 -->
+  <circle cx="32" cy="32" r="9" fill="#FFFFFF" stroke="#1a1a2e" stroke-width="3"/>
+
+  <!-- 中心按钮 -->
+  <circle cx="32" cy="32" r="5" fill="#FFFFFF" stroke="#1a1a2e" stroke-width="2"/>
+  <circle cx="32" cy="32" r="3" fill="none" stroke="#E02020" stroke-width="1.5"/>
+
+  <!-- 高光 -->
+  <ellipse cx="24" cy="22" rx="10" ry="8" fill="url(#shine)" transform="rotate(-25 24 22)" opacity="0.6"/>
 </svg>
