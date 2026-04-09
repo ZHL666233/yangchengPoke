@@ -1413,6 +1413,11 @@ export default function Wild() {
                       </button>
                       <button 
                         onClick={() => {
+                          if (party.length + box.length <= 1) {
+                            setToast('这是你最后一只宝可梦，无法放生！');
+                            setShowReleaseConfirm(false);
+                            return;
+                          }
                           releasePokemon(caughtPokemonInfo.id);
                           setCaughtPokemonInfo(null);
                           setShowReleaseConfirm(false);

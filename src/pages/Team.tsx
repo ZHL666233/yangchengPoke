@@ -34,8 +34,8 @@ export default function TeamPage() {
   } | null>(null);
 
   useEffect(() => {
-    if (party.length === 0) navigate('/', { replace: true });
-  }, [party, navigate]);
+    if (!useGameStore.getState().gameStarted) navigate('/', { replace: true });
+  }, [navigate]);
 
   const teamPokemons = battleTeam.map(id => party.find(p => p.id === id) || box.find(p => p.id === id)).filter(Boolean) as typeof party;
 

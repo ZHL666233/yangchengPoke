@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, Shield, Search, Filter, SortAsc, SortDesc, Tent, Info, Trash2, Sparkles } from 'lucide-react';
 import { useGameStore } from '@/store/useGameStore';
@@ -17,6 +17,7 @@ export default function BoxPage() {
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [showReleaseConfirm, setShowReleaseConfirm] = useState(false);
   const [showEvolveConfirm, setShowEvolveConfirm] = useState(false);
+  const [toast, setToast] = useState<string | null>(null);
   const [isEvolving, setIsEvolving] = useState(false);
   const [evolveAnim, setEvolveAnim] = useState<{
     oldSpeciesId: number;
@@ -50,6 +51,14 @@ export default function BoxPage() {
     });
     return ['全部', ...Array.from(types)];
   }, [allPokemons]);
+
+  useEffect(() => {
+    if (!toast) return;
+    const t = window.setTimeout(() => setToast(null), 1200);
+    return () => window.clearTimeout(t);
+  }, [toast]);
+
+  const isLastPokemon = party.length + box.length <= 1;
 
   const filteredAndSortedPokemons = useMemo(() => {
     let result = [...allPokemons];
@@ -298,9 +307,15 @@ export default function BoxPage() {
                 </button>
                 <button 
                   onClick={() => {
+                    if (isLastPokemon) {
+                      setToast('这是你最后一只宝可梦，无法放生！');
+                      setShowReleaseConfirm(false);
+                      return;
+                    }
                     releasePokemon(selectedPokemon.id);
                     setSelectedId(null);
                     setShowReleaseConfirm(false);
+                    setToast('已放生，获得 500 金币');
                   }}
                   className="flex-1 py-3 bg-red-500 text-white font-bold rounded-xl shadow-lg shadow-red-200 hover:bg-red-600 transition-colors"
                 >
@@ -670,6 +685,11 @@ export default function BoxPage() {
         </div>
       )}
 
+      {toast && (
+        <div className="fixed top-24 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-4 py-2 rounded-full font-bold text-sm z-[70]">
+          {toast}
+        </div>
+      )}
     </div>
   );
 }

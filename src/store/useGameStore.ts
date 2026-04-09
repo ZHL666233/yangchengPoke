@@ -20,6 +20,7 @@ interface GameState {
   unlockedMaps: string[];
   currentMapId: string;
   defeatedBosses: string[];
+  gameStarted: boolean;
   adoptPokemon: (speciesId: number, name: string) => void;
   catchPokemon: (pokemon: Pokemon) => void;
   markSeen: (speciesId: number) => void;
@@ -154,6 +155,7 @@ export const useGameStore = create<GameState>()(
       unlockedMaps: ['map1'],
       currentMapId: 'map1',
       defeatedBosses: [],
+      gameStarted: false,
 
       adoptPokemon: (speciesId, name) => {
         const level = 5;
@@ -203,6 +205,7 @@ export const useGameStore = create<GameState>()(
           unlockedMaps: ['map1'],
           currentMapId: 'map1',
           defeatedBosses: [],
+          gameStarted: true,
         }));
       },
 
@@ -416,6 +419,21 @@ export const useGameStore = create<GameState>()(
             if (hoursPassed < 1) return p;
             const hungerDrop = Math.floor(hoursPassed * 10);
             const happinessDrop = Math.floor(hoursPassed * 5);
+
+            // 培育屋中的宝可梦（不在打工/训练）缓慢回复饱食度和心情
+            if (!p.work && !p.train) {
+              const hungerRecovery = Math.floor(hoursPassed * 3);
+              const happinessRecovery = Math.floor(hoursPassed * 2);
+              const netHungerChange = hungerDrop - hungerRecovery;
+              const netHappinessChange = happinessDrop - happinessRecovery;
+              return {
+                ...p,
+                hunger: Math.max(0, Math.min(MAX_HUNGER, p.hunger - netHungerChange)),
+                happiness: Math.max(0, Math.min(MAX_HAPPINESS, p.happiness - netHappinessChange)),
+                lastInteraction: now,
+              };
+            }
+
             return {
               ...p,
               hunger: Math.max(p.hunger - hungerDrop, 0),
@@ -566,19 +584,35 @@ export const useGameStore = create<GameState>()(
 
       healTeam: () => {
         let ok = false;
+        let healedCount = 0;
         set((state) => {
-          const cost = state.battleTeam.length * 30;
+          const allPokemon = [...state.party, ...state.box];
+          const teamIds = state.battleTeam;
+
+          // 计算实际需要恢复的精灵数量
+          const needHealIds = teamIds.filter(id => {
+            const p = allPokemon.find(x => x.id === id);
+            if (!p) return false;
+            if (p.hp < p.maxHp) return true;
+            const skills = p.skills || getInitialSkills(p.speciesId);
+            return skills.some(s => s.pp < s.maxPp);
+          });
+
+          if (needHealIds.length === 0) return state;
+
+          const cost = needHealIds.length * 30;
           if (state.coins < cost) return state;
 
           ok = true;
+          healedCount = needHealIds.length;
           const newParty = state.party.map(p => {
-            if (state.battleTeam.includes(p.id)) {
+            if (needHealIds.includes(p.id)) {
               return { ...p, hp: p.maxHp, skills: (p.skills || getInitialSkills(p.speciesId)).map(s => ({ ...s, pp: s.maxPp })) };
             }
             return p;
           });
           const newBox = state.box.map(p => {
-            if (state.battleTeam.includes(p.id)) {
+            if (needHealIds.includes(p.id)) {
               return { ...p, hp: p.maxHp, skills: (p.skills || getInitialSkills(p.speciesId)).map(s => ({ ...s, pp: s.maxPp })) };
             }
             return p;
@@ -755,6 +789,9 @@ export const useGameStore = create<GameState>()(
       })),
 
       releasePokemon: (id) => set((state) => {
+        // 不允许释放最后一只宝可梦
+        if (state.party.length + state.box.length <= 1) return state;
+        
         const partyIdx = state.party.findIndex(p => p.id === id);
         const boxIdx = state.box.findIndex(p => p.id === id);
         

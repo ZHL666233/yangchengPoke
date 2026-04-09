@@ -20,8 +20,8 @@ export default function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-slate-50 flex justify-center items-center overflow-hidden">
-        <div className="w-full max-w-md h-[100dvh] bg-white sm:h-[800px] sm:rounded-3xl sm:shadow-2xl overflow-hidden relative">
+      <div className="h-screen bg-slate-50 flex justify-center items-center overflow-hidden">
+        <div className="app-container w-full max-w-md h-[100dvh] bg-white sm:rounded-3xl sm:shadow-2xl overflow-hidden relative">
           {!loaded && <LoadingScreen onComplete={handleLoadComplete} />}
           <Routes>
             <Route path="/" element={<Home />} />

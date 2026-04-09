@@ -54,16 +54,16 @@ const GUIDE_STEPS = [
 
 export default function Home() {
   const navigate = useNavigate();
-  const { party, adoptPokemon } = useGameStore();
+  const { party, adoptPokemon, gameStarted } = useGameStore();
   const [selectedStarter, setSelectedStarter] = useState<number | null>(null);
   const [showGuide, setShowGuide] = useState(false);
   const [guideStep, setGuideStep] = useState(0);
 
   useEffect(() => {
-    if (party.length > 0) {
+    if (gameStarted) {
       navigate('/play', { replace: true });
     }
-  }, [party, navigate]);
+  }, [gameStarted, navigate]);
 
   // Check if guide has been shown before
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function Home() {
     }
   }, []);
 
-  if (party.length > 0) return null;
+  if (gameStarted) return null;
 
   const handleAdopt = () => {
     if (selectedStarter) {
