@@ -1,3 +1,4 @@
+import { useState, useCallback } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "@/pages/Home";
 import Play from "@/pages/Play";
@@ -11,12 +12,17 @@ import BoxPage from "@/pages/Box";
 import Menu from "@/pages/Menu";
 import TeamPage from "@/pages/Team";
 import Settings from "@/pages/Settings";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export default function App() {
+  const [loaded, setLoaded] = useState(false);
+  const handleLoadComplete = useCallback(() => setLoaded(true), []);
+
   return (
     <Router>
       <div className="min-h-screen bg-slate-50 flex justify-center items-center overflow-hidden">
         <div className="w-full max-w-md h-[100dvh] bg-white sm:h-[800px] sm:rounded-3xl sm:shadow-2xl overflow-hidden relative">
+          {!loaded && <LoadingScreen onComplete={handleLoadComplete} />}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/play" element={<Play />} />
