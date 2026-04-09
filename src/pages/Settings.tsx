@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Download, Upload, Trash2, Info, ChevronRight } from 'lucide-react';
+import { Download, Upload, Trash2, Info, ChevronRight, MessageSquareHeart, Heart } from 'lucide-react';
 import { useGameStore } from '@/store/useGameStore';
 import PageHeader from '@/components/PageHeader';
 
@@ -192,6 +192,49 @@ export default function Settings() {
             <p>存档数据保存在浏览器本地，清除浏览器缓存会导致存档丢失。</p>
             <p>建议定期导出存档备份，防止意外丢失。</p>
             <p>读取存档会覆盖当前所有数据，请谨慎操作。</p>
+          </div>
+        </motion.div>
+
+        {/* 关于游戏 */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+          className="rounded-3xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-5 space-y-4"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center">
+              <Heart className="w-5 h-5 text-indigo-500" />
+            </div>
+            <div className="text-sm font-black text-slate-900">关于游戏</div>
+          </div>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-slate-500">游戏名称</span>
+              <span className="text-xs font-black text-slate-800">养成宝可梦</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-slate-500">当前版本</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 border border-amber-200 text-amber-700 text-[11px] font-black">
+                测试版 v0.1.0 Demo
+              </span>
+            </div>
+            <div className="h-px bg-slate-200/60" />
+            <div className="rounded-2xl bg-white/80 border border-indigo-100 p-3 space-y-2">
+              <div className="flex items-center gap-2">
+                <MessageSquareHeart className="w-4 h-4 text-indigo-500 shrink-0" />
+                <span className="text-xs font-black text-slate-700">建议 & 反馈</span>
+              </div>
+              <p className="text-[11px] font-semibold text-slate-500 leading-relaxed">
+                如果你有任何问题、建议或想法，欢迎联系作者交流！
+              </p>
+              <div className="flex items-center gap-2 pt-1">
+                <span className="text-xs font-semibold text-slate-500">QQ：</span>
+                <span className="text-sm font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-lg border border-indigo-100">
+                  3222407954
+                </span>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

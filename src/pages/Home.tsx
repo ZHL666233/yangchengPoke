@@ -143,6 +143,21 @@ export default function Home() {
         </motion.button>
       )}
 
+      {/* Version & Feedback */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        className="mt-8 z-10 text-center space-y-1"
+      >
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 border border-amber-200 text-amber-700">
+          <span className="text-xs font-black">测试版 v0.1.0 Demo</span>
+        </div>
+        <p className="text-[11px] font-semibold text-slate-400">
+          问题反馈 & 建议 QQ：<span className="text-indigo-500 font-bold">3222407954</span>
+        </p>
+      </motion.div>
+
       {/* Guide Modal */}
       {showGuide && (() => {
         const step = GUIDE_STEPS[guideStep];
