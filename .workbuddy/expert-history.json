@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "sessions": {
+    "5b6d760c85a94bbab580790114ac676e": [
+      {
+        "expertId": "ContentCreator",
+        "name": "Kai",
+        "profession": "内容创作专家",
+        "avatarUrl": "https://acc-1258344699.cos.accelerate.myqcloud.com/workbuddy/experts/avatars/03-Marketing/ContentCreator/ContentCreator.png",
+        "promptUrl": "https://acc-1258344699.cos.accelerate.myqcloud.com/workbuddy/experts/experts/03-Marketing/ContentCreator/ContentCreator_zh.md",
+        "usedAt": 1775731498021,
+        "industryId": "all"
+      },
+      {
+        "expertId": "UiDesigner",
+        "name": "Sam",
+        "profession": "UI设计师",
+        "avatarUrl": "https://acc-1258344699.cos.accelerate.myqcloud.com/workbuddy/experts/avatars/01-Design/UiDesigner/UiDesigner.png",
+        "promptUrl": "https://acc-1258344699.cos.accelerate.myqcloud.com/workbuddy/experts/experts/01-Design/UiDesigner/UiDesigner_zh.md",
+        "usedAt": 1775724898350,
+        "industryId": "01-Design"
+      }
+    ]
+  },
+  "lastUpdated": 1775733092113
+}
