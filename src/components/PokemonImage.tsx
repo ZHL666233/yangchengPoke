@@ -12,7 +12,7 @@ type Props = {
 };
 
 const getSrc = (speciesId: number, isShiny: boolean) => {
-  const folder = isShiny ? '/pokemon/shiny' : '/pokemon/normal';
+  const folder = isShiny ? 'pokemon/shiny' : 'pokemon/normal';
   return `${folder}/${speciesId}.png`;
 };
 

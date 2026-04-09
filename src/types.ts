@@ -795,7 +795,7 @@ export const ITEMS: Record<
     price: 15,
     effect: { hunger: 20 },
     tone: 'bg-orange-50 text-orange-700 border-orange-200',
-    image: '/items/berry.svg',
+    image: 'items/berry.svg',
   },
   apple: {
     id: 'apple',
@@ -804,7 +804,7 @@ export const ITEMS: Record<
     price: 25,
     effect: { hunger: 35, happiness: 5 },
     tone: 'bg-red-50 text-red-700 border-red-200',
-    image: '/items/apple.svg',
+    image: 'items/apple.svg',
   },
   sandwich: {
     id: 'sandwich',
@@ -813,7 +813,7 @@ export const ITEMS: Record<
     price: 60,
     effect: { hunger: 60, happiness: 10 },
     tone: 'bg-amber-50 text-amber-700 border-amber-200',
-    image: '/items/sandwich.svg',
+    image: 'items/sandwich.svg',
   },
   candy: {
     id: 'candy',
@@ -822,7 +822,7 @@ export const ITEMS: Record<
     price: 25,
     effect: { exp: 40 },
     tone: 'bg-yellow-50 text-yellow-800 border-yellow-200',
-    image: '/items/candy.svg',
+    image: 'items/candy.svg',
   },
   toy: {
     id: 'toy',
@@ -831,7 +831,7 @@ export const ITEMS: Record<
     price: 20,
     effect: { happiness: 20 },
     tone: 'bg-pink-50 text-pink-700 border-pink-200',
-    image: '/items/toy.svg',
+    image: 'items/toy.svg',
   },
   ball: {
     id: 'ball',
@@ -840,7 +840,7 @@ export const ITEMS: Record<
     price: 30,
     effect: { happiness: 25, hunger: -5 },
     tone: 'bg-sky-50 text-sky-700 border-sky-200',
-    image: '/items/ball.svg',
+    image: 'items/ball.svg',
   },
   kite: {
     id: 'kite',
@@ -849,7 +849,7 @@ export const ITEMS: Record<
     price: 55,
     effect: { happiness: 35, hunger: -10 },
     tone: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-    image: '/items/kite.svg',
+    image: 'items/kite.svg',
   },
   pokeball: {
     id: 'pokeball',
@@ -858,7 +858,7 @@ export const ITEMS: Record<
     price: 50,
     effect: {}, 
     tone: 'bg-red-50 text-red-700 border-red-200',
-    image: '/items/pokeball.svg',
+    image: 'items/pokeball.svg',
   },
   greatball: {
     id: 'greatball',
@@ -867,7 +867,7 @@ export const ITEMS: Record<
     price: 150,
     effect: {},
     tone: 'bg-blue-50 text-blue-700 border-blue-200',
-    image: '/items/greatball.svg',
+    image: 'items/greatball.svg',
   },
   ultraball: {
     id: 'ultraball',
@@ -876,7 +876,7 @@ export const ITEMS: Record<
     price: 300,
     effect: {},
     tone: 'bg-amber-50 text-amber-700 border-amber-200',
-    image: '/items/ultraball.svg',
+    image: 'items/ultraball.svg',
   },
   masterball: {
     id: 'masterball',
@@ -885,7 +885,7 @@ export const ITEMS: Record<
     price: 9999,
     effect: {},
     tone: 'bg-purple-50 text-purple-700 border-purple-200',
-    image: '/items/masterball.svg',
+    image: 'items/masterball.svg',
   },
   potion: {
     id: 'potion',
@@ -894,7 +894,7 @@ export const ITEMS: Record<
     price: 40,
     effect: { hunger: 50, happiness: 10 },
     tone: 'bg-orange-50 text-orange-700 border-orange-200',
-    image: '/items/potion.svg',
+    image: 'items/potion.svg',
   },
   rare_candy: {
     id: 'rare_candy',
@@ -903,7 +903,7 @@ export const ITEMS: Record<
     price: 80,
     effect: { exp: 120 },
     tone: 'bg-purple-50 text-purple-700 border-purple-200',
-    image: '/items/rare_candy.svg',
+    image: 'items/rare_candy.svg',
   },
   pokeblock: {
     id: 'pokeblock',
@@ -912,7 +912,7 @@ export const ITEMS: Record<
     price: 45,
     effect: { hunger: 40, happiness: 15 },
     tone: 'bg-pink-50 text-pink-700 border-pink-200',
-    image: '/items/pokeblock.svg',
+    image: 'items/pokeblock.svg',
   },
   poffin: {
     id: 'poffin',
@@ -921,7 +921,7 @@ export const ITEMS: Record<
     price: 50,
     effect: { happiness: 40, hunger: -5 },
     tone: 'bg-amber-50 text-amber-700 border-amber-200',
-    image: '/items/poffin.svg',
+    image: 'items/poffin.svg',
   },
   vitamin: {
     id: 'vitamin',
@@ -930,7 +930,7 @@ export const ITEMS: Record<
     price: 65,
     effect: { hunger: 70, happiness: 5 },
     tone: 'bg-red-50 text-red-700 border-red-200',
-    image: '/items/vitamin.svg',
+    image: 'items/vitamin.svg',
   },
   energy_powder: {
     id: 'energy_powder',
@@ -939,7 +939,7 @@ export const ITEMS: Record<
     price: 35,
     effect: { hunger: 30, happiness: 20 },
     tone: 'bg-lime-50 text-lime-700 border-lime-200',
-    image: '/items/energy_powder.svg',
+    image: 'items/energy_powder.svg',
   },
   frisbee: {
     id: 'frisbee',
@@ -948,7 +948,7 @@ export const ITEMS: Record<
     price: 40,
     effect: { happiness: 30, hunger: -8 },
     tone: 'bg-cyan-50 text-cyan-700 border-cyan-200',
-    image: '/items/frisbee.svg',
+    image: 'items/frisbee.svg',
   },
   yarn: {
     id: 'yarn',
@@ -957,7 +957,7 @@ export const ITEMS: Record<
     price: 45,
     effect: { happiness: 35, hunger: -5 },
     tone: 'bg-violet-50 text-violet-700 border-violet-200',
-    image: '/items/yarn.svg',
+    image: 'items/yarn.svg',
   },
   premium_ball: {
     id: 'premium_ball',
@@ -966,7 +966,7 @@ export const ITEMS: Record<
     price: 200,
     effect: {},
     tone: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    image: '/items/premium_ball.svg',
+    image: 'items/premium_ball.svg',
   },
   dive_ball: {
     id: 'dive_ball',
@@ -975,7 +975,7 @@ export const ITEMS: Record<
     price: 250,
     effect: {},
     tone: 'bg-blue-50 text-blue-700 border-blue-200',
-    image: '/items/dive_ball.svg',
+    image: 'items/dive_ball.svg',
   },
   timer_ball: {
     id: 'timer_ball',
@@ -984,7 +984,7 @@ export const ITEMS: Record<
     price: 350,
     effect: {},
     tone: 'bg-slate-100 text-slate-700 border-slate-200',
-    image: '/items/timer_ball.svg',
+    image: 'items/timer_ball.svg',
   },
   repeat_ball: {
     id: 'repeat_ball',
@@ -993,7 +993,7 @@ export const ITEMS: Record<
     price: 280,
     effect: {},
     tone: 'bg-yellow-50 text-yellow-700 border-yellow-200',
-    image: '/items/repeat_ball.svg',
+    image: 'items/repeat_ball.svg',
   },
   // IV提升道具
   hp_up: {
@@ -1003,7 +1003,7 @@ export const ITEMS: Record<
     price: 3000,
     effect: {},
     tone: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-    image: '/items/hp_up.svg',
+    image: 'items/hp_up.svg',
   },
   protein: {
     id: 'protein',
@@ -1012,7 +1012,7 @@ export const ITEMS: Record<
     price: 3000,
     effect: {},
     tone: 'bg-red-50 text-red-700 border-red-200',
-    image: '/items/protein.svg',
+    image: 'items/protein.svg',
   },
   iron: {
     id: 'iron',
@@ -1021,7 +1021,7 @@ export const ITEMS: Record<
     price: 3000,
     effect: {},
     tone: 'bg-slate-100 text-slate-700 border-slate-200',
-    image: '/items/iron.svg',
+    image: 'items/iron.svg',
   },
   calcium: {
     id: 'calcium',
@@ -1030,7 +1030,7 @@ export const ITEMS: Record<
     price: 3000,
     effect: {},
     tone: 'bg-blue-50 text-blue-700 border-blue-200',
-    image: '/items/calcium.svg',
+    image: 'items/calcium.svg',
   },
   zinc: {
     id: 'zinc',
@@ -1039,7 +1039,7 @@ export const ITEMS: Record<
     price: 3000,
     effect: {},
     tone: 'bg-indigo-50 text-indigo-700 border-indigo-200',
-    image: '/items/zinc.svg',
+    image: 'items/zinc.svg',
   },
   carbos: {
     id: 'carbos',
@@ -1048,7 +1048,7 @@ export const ITEMS: Record<
     price: 3000,
     effect: {},
     tone: 'bg-cyan-50 text-cyan-700 border-cyan-200',
-    image: '/items/carbos.svg',
+    image: 'items/carbos.svg',
   },
   // 进化石道具
   fire_stone: {
@@ -1058,7 +1058,7 @@ export const ITEMS: Record<
     price: 2100,
     effect: {},
     tone: 'bg-red-50 text-red-700 border-red-200',
-    image: '/items/fire_stone.svg',
+    image: 'items/fire_stone.svg',
   },
   water_stone: {
     id: 'water_stone',
@@ -1067,7 +1067,7 @@ export const ITEMS: Record<
     price: 2100,
     effect: {},
     tone: 'bg-blue-50 text-blue-700 border-blue-200',
-    image: '/items/water_stone.svg',
+    image: 'items/water_stone.svg',
   },
   thunder_stone: {
     id: 'thunder_stone',
@@ -1076,7 +1076,7 @@ export const ITEMS: Record<
     price: 2100,
     effect: {},
     tone: 'bg-amber-50 text-amber-700 border-amber-200',
-    image: '/items/thunder_stone.svg',
+    image: 'items/thunder_stone.svg',
   },
   leaf_stone: {
     id: 'leaf_stone',
@@ -1085,7 +1085,7 @@ export const ITEMS: Record<
     price: 2100,
     effect: {},
     tone: 'bg-green-50 text-green-700 border-green-200',
-    image: '/items/leaf_stone.svg',
+    image: 'items/leaf_stone.svg',
   },
   moon_stone: {
     id: 'moon_stone',
@@ -1094,7 +1094,7 @@ export const ITEMS: Record<
     price: 2500,
     effect: {},
     tone: 'bg-violet-50 text-violet-700 border-violet-200',
-    image: '/items/moon_stone.svg',
+    image: 'items/moon_stone.svg',
   },
 };
 
