@@ -486,7 +486,7 @@ export default function Wild() {
       setBattleLog(`野生宝可梦使用了 ${name}！造成了 ${wDmg} 伤害${wIsCrit ? '(击中要害)' : ''}。`);
 
       if (myHp <= 0) {
-        setTimeout(handleFaint, 1500);
+        setTimeout(() => handleFaint(activePokemon.id), 1500);
       } else {
         if (callback) {
           callback(myHp);
@@ -511,19 +511,22 @@ export default function Wild() {
       }, 1500);
     }
 
-    function handleFaint() {
-      setBattleLog(`${activePokemon.name} 倒下了！`);
-      
+    function handleFaint(faintedId: string) {
+      const faintedName = activePokemon.name;
+      setBattleLog(`${faintedName} 倒下了！`);
+
       setTimeout(() => {
-        const nextAliveIdx = battlePokemons.findIndex((p, idx) => idx > activeTeamIndex && p.hp > 0);
+        // React state batching: party may still have stale HP values here.
+        // We KNOW faintedId has hp=0. Skip it explicitly regardless of party state.
+        const nextAliveIdx = battlePokemons.findIndex((p, idx) => idx > activeTeamIndex && p.hp > 0 && p.id !== faintedId);
         if (nextAliveIdx !== -1) {
           setActiveTeamIndex(nextAliveIdx);
           setPlayerHp(battlePokemons[nextAliveIdx].hp);
           setBattleLog(`去吧！${battlePokemons[nextAliveIdx].name}！`);
           setIsActionDisabled(false);
         } else {
-          // Check from start
-          const anyAliveIdx = battlePokemons.findIndex(p => p.hp > 0);
+          // Also check from start, excluding faintedId
+          const anyAliveIdx = battlePokemons.findIndex(p => p.hp > 0 && p.id !== faintedId);
           if (anyAliveIdx !== -1) {
             setActiveTeamIndex(anyAliveIdx);
             setPlayerHp(battlePokemons[anyAliveIdx].hp);
